@@ -8,6 +8,7 @@ router.post('/register', (req, res) => {
     const user = req.body;
     user.password = bc.hashSync(user.password, 8);
 
+
     userDB.add(user)
     .then(saved => {
         res.status(201).json(saved);
@@ -28,7 +29,7 @@ router.post('/login', (req, res) => {
         if(users.length && bc.compareSync(user.password, users[0].password)) {
             req.session.username = users[0].username;
             res.json({
-                welcomeMessage: `Welcome ${user}. You are now logged in.`
+                welcomeMessage: `Welcome ${user.username}. You are now logged in.`
             })
         } else {
             res.status(404).json({
