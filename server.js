@@ -13,6 +13,7 @@ server.use(session({
     secret: 'lukas',
     cookie: {
         expires: false
+        // you can set the maxAge here as well
     },
     httpOnly: true,
     resave: false,
