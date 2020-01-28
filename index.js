@@ -1,6 +1,6 @@
-const server = require('./server');
+const server = require('./server.js');
 
-const port = 4000;
+const port = process.env.PORT || 5000;
 
 server.listen(port, () => {
     console.log(`Server is ONLINE at ${port}`)
